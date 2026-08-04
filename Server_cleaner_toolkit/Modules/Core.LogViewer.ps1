@@ -21,16 +21,16 @@ function Invoke-LogViewerMenu {
         if ($logFiles.Count -eq 0) {
             Write-Host $script:Lang.Logs_None -ForegroundColor DarkGray
             Write-Host ''
-            Write-Host $script:Lang.Option_Back -ForegroundColor DarkGray
+            Write-Host (Format-MenuOption 0 $script:Lang.Option_Back) -ForegroundColor DarkGray
             Read-MenuChoice -MinValue 0 -MaxValue 0 | Out-Null
             return
         }
 
         for ($i = 0; $i -lt $logFiles.Count; $i++) {
-            Write-Host ("{0}. {1}" -f ($i + 1), $logFiles[$i].Name)
+            Write-Host (Format-MenuOption ($i + 1) $logFiles[$i].Name)
         }
         Write-Host ''
-        Write-Host $script:Lang.Option_Back -ForegroundColor DarkGray
+        Write-Host (Format-MenuOption 0 $script:Lang.Option_Back) -ForegroundColor DarkGray
 
         $choice = Read-MenuChoice -MinValue 0 -MaxValue $logFiles.Count
         if ($choice -eq 0) { return }
@@ -98,7 +98,7 @@ function Show-LogFile {
         Write-Host ''
         if ($page -ge $totalPages) {
             Write-Host $script:Lang.Logs_EndOfFile -ForegroundColor DarkGray
-            Write-Host $script:Lang.Option_Back -ForegroundColor DarkGray
+            Write-Host (Format-MenuOption 0 $script:Lang.Option_Back) -ForegroundColor DarkGray
             Read-MenuChoice -MinValue 0 -MaxValue 0 | Out-Null
             return
         }

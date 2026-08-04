@@ -9,11 +9,11 @@
 
     MainMenu_Header      = 'HAUPTMENÜ'
     MainMenu_Description = 'Wählen Sie die auszuführende Operation aus:'
-    MainMenu_Option1     = '1. Sprache ändern'
-    MainMenu_Option2     = '2. Datei löschen (purge)'
-    MainMenu_Option3     = '3. Protokolle anzeigen'
-    Option_Exit          = '0. Beenden'
-    Option_Back          = '0. Zurück'
+    MainMenu_Option1     = 'Sprache ändern'
+    MainMenu_Option2     = 'Datei löschen (purge)'
+    MainMenu_Option3     = 'Protokolle anzeigen'
+    Option_Exit          = 'Beenden'
+    Option_Back          = 'Zurück'
 
     LangMenu_Header      = 'SPRACHEINSTELLUNGEN'
     LangMenu_Description = 'Wählen Sie die Sprache für diese Sitzung (aktuelle Sprache mit * markiert):'
@@ -33,4 +33,41 @@
 
     Elevation_Requesting = 'Administratorrechte erforderlich, Neustart läuft...'
     Elevation_Failed     = 'Administratorrechte konnten nicht erlangt werden. Das Skript wird beendet.'
+
+    Purge_AskFileName = 'Geben Sie den (auch teilweisen) Namen der zu suchenden Datei ein:'
+
+    LogMode_Header      = 'PROTOKOLLIERUNGSMODUS'
+    LogMode_Description = 'Wählen Sie, wie der Scan im Protokoll erfasst werden soll:'
+    LogMode_Full        = 'Vollständig: protokolliert jede während des Scans beobachtete Datei'
+    LogMode_MatchesOnly = 'Nur Treffer: protokolliert nur gefundene Dateien und die wichtigsten Vorgänge'
+
+    LogLimit_Header       = 'PROTOKOLLGRÖSSENLIMIT'
+    LogLimit_Description  = 'Möchten Sie eine maximale Größe für die Protokolldatei festlegen?'
+    LogLimit_None         = 'Kein Limit'
+    LogLimit_Custom       = 'Ein Limit festlegen (z. B. 500MB, 2GB)'
+    LogLimit_EnterValue   = 'Geben Sie die maximale Größe ein (z. B. 500MB oder 2GB):'
+    LogLimit_InvalidValue = 'Ungültiges Format. Beispiel: 500MB oder 2GB.'
+
+    Exclusions_Prompt = 'Möchten Sie umfangreiche Systemordner von der Suche ausschließen (WinSxS, System32, Windows Defender-Cache usw.)? Web-Caches (IIS/ASP.NET/XAMPP) werden immer eingeschlossen.'
+
+    Scan_Starting      = 'Suche wird gestartet für: {0}'
+    Scan_CacheLocation = 'Cache wird geprüft: {0}'
+    Scan_Drive         = 'Laufwerk wird durchsucht: {0}'
+    Scan_Folder        = 'Ordner: {0}'
+    Scan_Match         = 'Treffer: {0}'
+    Scan_Hidden        = ' [versteckt]'
+    Scan_Link          = ' [Verknüpfung]'
+    Scan_Completed     = 'Scan abgeschlossen. Gefundene Treffer: {0}'
+    Scan_NoMatches     = 'Keine Treffer gefunden für: {0}'
+    Scan_LogTruncated  = 'Protokollgrößenlimit erreicht: weitere Zeilen werden nicht mehr in der Datei gespeichert (der Scan wird trotzdem fortgesetzt).'
+    Scan_AccessDenied  = 'Zugriff verweigert, Ordner übersprungen: {0}'
+
+    Results_Header           = 'SUCHERGEBNISSE'
+    Results_Description      = 'Wählen Sie die Nummer des zu löschenden Elements, oder die letzte Option, um alle zu löschen.'
+    Results_DeleteAll        = 'Alle Treffer löschen ({0})'
+    Results_ConfirmDeleteOne = 'Sind Sie sicher, dass Sie diese Datei löschen möchten?'
+    Results_ConfirmDeleteAll = 'Sind Sie sicher, dass Sie ALLE {0} gefundenen Treffer löschen möchten?'
+    Results_Deleted          = 'Gelöscht: {0}'
+    Results_DeleteFailed     = 'Konnte {0} nicht löschen: {1}'
+    Results_ReturningToMain  = 'Keine Treffer mehr übrig: Rückkehr zum Hauptmenü.'
 }

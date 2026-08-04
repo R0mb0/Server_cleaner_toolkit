@@ -9,11 +9,11 @@
 
     MainMenu_Header      = 'MENU PRINCIPALE'
     MainMenu_Description = 'Seleziona quale operazione svolgere:'
-    MainMenu_Option1     = '1. Cambia lingua'
-    MainMenu_Option2     = '2. Elimina un file (purge)'
-    MainMenu_Option3     = '3. Visualizza i log'
-    Option_Exit          = '0. Esci'
-    Option_Back          = '0. Torna indietro'
+    MainMenu_Option1     = 'Cambia lingua'
+    MainMenu_Option2     = 'Elimina un file (purge)'
+    MainMenu_Option3     = 'Visualizza i log'
+    Option_Exit          = 'Esci'
+    Option_Back          = 'Torna indietro'
 
     LangMenu_Header      = 'CAMBIO LINGUA'
     LangMenu_Description = 'Scegli la lingua da utilizzare per questa sessione (la lingua attuale è contrassegnata con *):'
@@ -33,4 +33,41 @@
 
     Elevation_Requesting = 'Privilegi amministrativi richiesti, riavvio in corso...'
     Elevation_Failed     = 'Impossibile ottenere i privilegi amministrativi. Lo script verrà chiuso.'
+
+    Purge_AskFileName = 'Inserisci il nome (anche parziale) del file da cercare:'
+
+    LogMode_Header      = 'MODALITÀ DI REGISTRAZIONE'
+    LogMode_Description = 'Scegli come registrare la scansione nel file di log:'
+    LogMode_Full        = 'Completa: registra ogni file osservato durante la scansione'
+    LogMode_MatchesOnly = 'Solo corrispondenze: registra solo i file trovati e le operazioni principali'
+
+    LogLimit_Header       = 'LIMITE DIMENSIONE LOG'
+    LogLimit_Description  = 'Vuoi impostare una dimensione massima per il file di log?'
+    LogLimit_None         = 'Nessun limite'
+    LogLimit_Custom       = 'Imposta un limite (es. 500MB, 2GB)'
+    LogLimit_EnterValue   = 'Inserisci la dimensione massima (es. 500MB oppure 2GB):'
+    LogLimit_InvalidValue = 'Formato non valido. Esempio: 500MB oppure 2GB.'
+
+    Exclusions_Prompt = 'Vuoi escludere dalla scansione le cartelle di sistema pesanti (WinSxS, System32, cache di Windows Defender, ecc.)? Le cache web (IIS/ASP.NET/XAMPP) restano comunque incluse.'
+
+    Scan_Starting      = 'Avvio scansione per: {0}'
+    Scan_CacheLocation = 'Controllo cache: {0}'
+    Scan_Drive         = 'Scansione unità: {0}'
+    Scan_Folder        = 'Cartella: {0}'
+    Scan_Match         = 'Corrispondenza: {0}'
+    Scan_Hidden        = ' [nascosto]'
+    Scan_Link          = ' [collegamento]'
+    Scan_Completed     = 'Scansione completata. Corrispondenze trovate: {0}'
+    Scan_NoMatches     = 'Nessuna corrispondenza trovata per: {0}'
+    Scan_LogTruncated  = 'Limite dimensione log raggiunto: le righe successive non verranno più salvate su file (la scansione prosegue comunque).'
+    Scan_AccessDenied  = 'Accesso negato, cartella saltata: {0}'
+
+    Results_Header           = 'RISULTATI RICERCA'
+    Results_Description      = 'Seleziona il numero dell''elemento da eliminare, oppure l''ultima opzione per eliminarli tutti.'
+    Results_DeleteAll        = 'Elimina tutte le corrispondenze ({0})'
+    Results_ConfirmDeleteOne = 'Sei sicuro di voler eliminare questo file?'
+    Results_ConfirmDeleteAll = 'Sei sicuro di voler eliminare TUTTE le {0} corrispondenze trovate?'
+    Results_Deleted          = 'Eliminato: {0}'
+    Results_DeleteFailed     = 'Impossibile eliminare {0}: {1}'
+    Results_ReturningToMain  = 'Nessuna corrispondenza rimanente: ritorno al menu principale.'
 }

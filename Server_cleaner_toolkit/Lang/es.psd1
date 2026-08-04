@@ -9,11 +9,11 @@
 
     MainMenu_Header      = 'MENÚ PRINCIPAL'
     MainMenu_Description = 'Seleccione la operación a realizar:'
-    MainMenu_Option1     = '1. Cambiar idioma'
-    MainMenu_Option2     = '2. Eliminar un archivo (purge)'
-    MainMenu_Option3     = '3. Ver registros'
-    Option_Exit          = '0. Salir'
-    Option_Back          = '0. Volver'
+    MainMenu_Option1     = 'Cambiar idioma'
+    MainMenu_Option2     = 'Eliminar un archivo (purge)'
+    MainMenu_Option3     = 'Ver registros'
+    Option_Exit          = 'Salir'
+    Option_Back          = 'Volver'
 
     LangMenu_Header      = 'CONFIGURACIÓN DE IDIOMA'
     LangMenu_Description = 'Elija el idioma a utilizar en esta sesión (idioma actual marcado con *):'
@@ -33,4 +33,41 @@
 
     Elevation_Requesting = 'Se requieren privilegios de administrador, reiniciando...'
     Elevation_Failed     = 'No se pudieron obtener privilegios de administrador. El script se cerrará.'
+
+    Purge_AskFileName = 'Introduzca el nombre (aunque sea parcial) del archivo a buscar:'
+
+    LogMode_Header      = 'MODO DE REGISTRO'
+    LogMode_Description = 'Elija cómo registrar el análisis en el archivo de registro:'
+    LogMode_Full        = 'Completo: registra cada archivo observado durante el análisis'
+    LogMode_MatchesOnly = 'Solo coincidencias: registra solo los archivos encontrados y las operaciones principales'
+
+    LogLimit_Header       = 'LÍMITE DE TAMAÑO DEL REGISTRO'
+    LogLimit_Description  = '¿Desea establecer un tamaño máximo para el archivo de registro?'
+    LogLimit_None         = 'Sin límite'
+    LogLimit_Custom       = 'Establecer un límite (ej. 500MB, 2GB)'
+    LogLimit_EnterValue   = 'Introduzca el tamaño máximo (ej. 500MB o 2GB):'
+    LogLimit_InvalidValue = 'Formato no válido. Ejemplo: 500MB o 2GB.'
+
+    Exclusions_Prompt = '¿Desea excluir del análisis las carpetas de sistema pesadas (WinSxS, System32, caché de Windows Defender, etc.)? Las cachés web (IIS/ASP.NET/XAMPP) siempre se incluyen.'
+
+    Scan_Starting      = 'Iniciando análisis de: {0}'
+    Scan_CacheLocation = 'Comprobando caché: {0}'
+    Scan_Drive         = 'Analizando unidad: {0}'
+    Scan_Folder        = 'Carpeta: {0}'
+    Scan_Match         = 'Coincidencia: {0}'
+    Scan_Hidden        = ' [oculto]'
+    Scan_Link          = ' [acceso directo]'
+    Scan_Completed     = 'Análisis completado. Coincidencias encontradas: {0}'
+    Scan_NoMatches     = 'No se encontraron coincidencias para: {0}'
+    Scan_LogTruncated  = 'Límite de tamaño del registro alcanzado: las líneas siguientes ya no se guardarán en el archivo (el análisis continúa de todos modos).'
+    Scan_AccessDenied  = 'Acceso denegado, carpeta omitida: {0}'
+
+    Results_Header           = 'RESULTADOS DE LA BÚSQUEDA'
+    Results_Description      = 'Seleccione el número del elemento a eliminar, o la última opción para eliminarlos todos.'
+    Results_DeleteAll        = 'Eliminar todas las coincidencias ({0})'
+    Results_ConfirmDeleteOne = '¿Está seguro de que desea eliminar este archivo?'
+    Results_ConfirmDeleteAll = '¿Está seguro de que desea eliminar TODAS las {0} coincidencias encontradas?'
+    Results_Deleted          = 'Eliminado: {0}'
+    Results_DeleteFailed     = 'No se pudo eliminar {0}: {1}'
+    Results_ReturningToMain  = 'No quedan coincidencias: volviendo al menú principal.'
 }

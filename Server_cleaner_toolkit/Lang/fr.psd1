@@ -9,11 +9,11 @@
 
     MainMenu_Header      = 'MENU PRINCIPAL'
     MainMenu_Description = 'Sélectionnez l''opération à effectuer :'
-    MainMenu_Option1     = '1. Changer de langue'
-    MainMenu_Option2     = '2. Supprimer un fichier (purge)'
-    MainMenu_Option3     = '3. Afficher les journaux'
-    Option_Exit          = '0. Quitter'
-    Option_Back          = '0. Retour'
+    MainMenu_Option1     = 'Changer de langue'
+    MainMenu_Option2     = 'Supprimer un fichier (purge)'
+    MainMenu_Option3     = 'Afficher les journaux'
+    Option_Exit          = 'Quitter'
+    Option_Back          = 'Retour'
 
     LangMenu_Header      = 'PARAMÈTRES DE LANGUE'
     LangMenu_Description = 'Choisissez la langue à utiliser pour cette session (langue actuelle marquée d''un *) :'
@@ -33,4 +33,41 @@
 
     Elevation_Requesting = 'Privilèges administrateur requis, redémarrage en cours...'
     Elevation_Failed     = 'Impossible d''obtenir les privilèges administrateur. Le script va se fermer.'
+
+    Purge_AskFileName = 'Saisissez le nom (même partiel) du fichier à rechercher :'
+
+    LogMode_Header      = 'MODE DE JOURNALISATION'
+    LogMode_Description = 'Choisissez comment enregistrer l''analyse dans le journal :'
+    LogMode_Full        = 'Complet : enregistre chaque fichier observé pendant l''analyse'
+    LogMode_MatchesOnly = 'Correspondances uniquement : enregistre seulement les fichiers trouvés et les opérations principales'
+
+    LogLimit_Header       = 'LIMITE DE TAILLE DU JOURNAL'
+    LogLimit_Description  = 'Voulez-vous définir une taille maximale pour le fichier journal ?'
+    LogLimit_None         = 'Aucune limite'
+    LogLimit_Custom       = 'Définir une limite (ex. 500Mo, 2Go)'
+    LogLimit_EnterValue   = 'Saisissez la taille maximale (ex. 500MB ou 2GB) :'
+    LogLimit_InvalidValue = 'Format invalide. Exemple : 500MB ou 2GB.'
+
+    Exclusions_Prompt = 'Voulez-vous exclure de l''analyse les dossiers système volumineux (WinSxS, System32, cache Windows Defender, etc.) ? Les caches web (IIS/ASP.NET/XAMPP) restent toujours inclus.'
+
+    Scan_Starting      = 'Démarrage de l''analyse pour : {0}'
+    Scan_CacheLocation = 'Vérification du cache : {0}'
+    Scan_Drive         = 'Analyse du lecteur : {0}'
+    Scan_Folder        = 'Dossier : {0}'
+    Scan_Match         = 'Correspondance : {0}'
+    Scan_Hidden        = ' [caché]'
+    Scan_Link          = ' [raccourci]'
+    Scan_Completed     = 'Analyse terminée. Correspondances trouvées : {0}'
+    Scan_NoMatches     = 'Aucune correspondance trouvée pour : {0}'
+    Scan_LogTruncated  = 'Limite de taille du journal atteinte : les lignes suivantes ne seront plus enregistrées dans le fichier (l''analyse continue quand même).'
+    Scan_AccessDenied  = 'Accès refusé, dossier ignoré : {0}'
+
+    Results_Header           = 'RÉSULTATS DE LA RECHERCHE'
+    Results_Description      = 'Sélectionnez le numéro de l''élément à supprimer, ou la dernière option pour tout supprimer.'
+    Results_DeleteAll        = 'Supprimer toutes les correspondances ({0})'
+    Results_ConfirmDeleteOne = 'Êtes-vous sûr de vouloir supprimer ce fichier ?'
+    Results_ConfirmDeleteAll = 'Êtes-vous sûr de vouloir supprimer TOUTES les {0} correspondances trouvées ?'
+    Results_Deleted          = 'Supprimé : {0}'
+    Results_DeleteFailed     = 'Impossible de supprimer {0} : {1}'
+    Results_ReturningToMain  = 'Plus aucune correspondance : retour au menu principal.'
 }

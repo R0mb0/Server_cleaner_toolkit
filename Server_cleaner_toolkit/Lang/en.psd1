@@ -9,11 +9,11 @@
 
     MainMenu_Header      = 'MAIN MENU'
     MainMenu_Description = 'Select which operation to perform:'
-    MainMenu_Option1     = '1. Change language'
-    MainMenu_Option2     = '2. Delete a file (purge)'
-    MainMenu_Option3     = '3. View logs'
-    Option_Exit          = '0. Exit'
-    Option_Back          = '0. Go back'
+    MainMenu_Option1     = 'Change language'
+    MainMenu_Option2     = 'Delete a file (purge)'
+    MainMenu_Option3     = 'View logs'
+    Option_Exit          = 'Exit'
+    Option_Back          = 'Go back'
 
     LangMenu_Header      = 'LANGUAGE SETTINGS'
     LangMenu_Description = 'Choose the language to use for this session (current language marked with *):'
@@ -33,4 +33,41 @@
 
     Elevation_Requesting = 'Administrator privileges required, restarting...'
     Elevation_Failed     = 'Could not obtain administrator privileges. The script will close.'
+
+    Purge_AskFileName = 'Enter the (even partial) name of the file to search for:'
+
+    LogMode_Header      = 'LOGGING MODE'
+    LogMode_Description = 'Choose how to record the scan in the log file:'
+    LogMode_Full        = 'Full: log every file observed during the scan'
+    LogMode_MatchesOnly = 'Matches only: log only the files found and the main operations'
+
+    LogLimit_Header       = 'LOG SIZE LIMIT'
+    LogLimit_Description  = 'Do you want to set a maximum size for the log file?'
+    LogLimit_None         = 'No limit'
+    LogLimit_Custom       = 'Set a limit (e.g. 500MB, 2GB)'
+    LogLimit_EnterValue   = 'Enter the maximum size (e.g. 500MB or 2GB):'
+    LogLimit_InvalidValue = 'Invalid format. Example: 500MB or 2GB.'
+
+    Exclusions_Prompt = 'Do you want to exclude heavy system folders from the scan (WinSxS, System32, Windows Defender cache, etc.)? Web caches (IIS/ASP.NET/XAMPP) are always included.'
+
+    Scan_Starting      = 'Starting scan for: {0}'
+    Scan_CacheLocation = 'Checking cache: {0}'
+    Scan_Drive         = 'Scanning drive: {0}'
+    Scan_Folder        = 'Folder: {0}'
+    Scan_Match         = 'Match: {0}'
+    Scan_Hidden        = ' [hidden]'
+    Scan_Link          = ' [link]'
+    Scan_Completed     = 'Scan completed. Matches found: {0}'
+    Scan_NoMatches     = 'No matches found for: {0}'
+    Scan_LogTruncated  = 'Log size limit reached: further lines will no longer be saved to file (the scan continues anyway).'
+    Scan_AccessDenied  = 'Access denied, folder skipped: {0}'
+
+    Results_Header           = 'SEARCH RESULTS'
+    Results_Description      = 'Select the number of the item to delete, or the last option to delete them all.'
+    Results_DeleteAll        = 'Delete all matches ({0})'
+    Results_ConfirmDeleteOne = 'Are you sure you want to delete this file?'
+    Results_ConfirmDeleteAll = 'Are you sure you want to delete ALL {0} matches found?'
+    Results_Deleted          = 'Deleted: {0}'
+    Results_DeleteFailed     = 'Could not delete {0}: {1}'
+    Results_ReturningToMain  = 'No matches left: returning to the main menu.'
 }

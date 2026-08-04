@@ -82,10 +82,10 @@ function Invoke-LanguageMenu {
     for ($i = 0; $i -lt $codes.Count; $i++) {
         $code   = $codes[$i]
         $marker = if ($code -eq $script:CurrentLangCode) { ' (*)' } else { '' }
-        Write-Host ("{0}. {1}{2}" -f ($i + 1), $script:LanguageDisplayNames[$code], $marker)
+        Write-Host (Format-MenuOption ($i + 1) "$($script:LanguageDisplayNames[$code])$marker")
     }
     Write-Host ''
-    Write-Host $script:Lang.Option_Back -ForegroundColor DarkGray
+    Write-Host (Format-MenuOption 0 $script:Lang.Option_Back) -ForegroundColor DarkGray
 
     $choice = Read-MenuChoice -MinValue 0 -MaxValue $codes.Count
     if ($choice -eq 0) { return }

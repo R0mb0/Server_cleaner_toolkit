@@ -9,11 +9,11 @@
 
     MainMenu_Header      = 'MENU PRINCIPAL'
     MainMenu_Description = 'Selecione a operação a realizar:'
-    MainMenu_Option1     = '1. Alterar idioma'
-    MainMenu_Option2     = '2. Excluir um arquivo (purge)'
-    MainMenu_Option3     = '3. Ver logs'
-    Option_Exit          = '0. Sair'
-    Option_Back          = '0. Voltar'
+    MainMenu_Option1     = 'Alterar idioma'
+    MainMenu_Option2     = 'Excluir um arquivo (purge)'
+    MainMenu_Option3     = 'Ver logs'
+    Option_Exit          = 'Sair'
+    Option_Back          = 'Voltar'
 
     LangMenu_Header      = 'CONFIGURAÇÕES DE IDIOMA'
     LangMenu_Description = 'Escolha o idioma a utilizar nesta sessão (idioma atual marcado com *):'
@@ -33,4 +33,41 @@
 
     Elevation_Requesting = 'Privilégios de administrador necessários, reiniciando...'
     Elevation_Failed     = 'Não foi possível obter privilégios de administrador. O script será fechado.'
+
+    Purge_AskFileName = 'Digite o nome (mesmo que parcial) do arquivo a ser pesquisado:'
+
+    LogMode_Header      = 'MODO DE REGISTRO'
+    LogMode_Description = 'Escolha como registrar a varredura no arquivo de log:'
+    LogMode_Full        = 'Completo: registra cada arquivo observado durante a varredura'
+    LogMode_MatchesOnly = 'Somente correspondências: registra apenas os arquivos encontrados e as operações principais'
+
+    LogLimit_Header       = 'LIMITE DE TAMANHO DO LOG'
+    LogLimit_Description  = 'Deseja definir um tamanho máximo para o arquivo de log?'
+    LogLimit_None         = 'Sem limite'
+    LogLimit_Custom       = 'Definir um limite (ex. 500MB, 2GB)'
+    LogLimit_EnterValue   = 'Digite o tamanho máximo (ex. 500MB ou 2GB):'
+    LogLimit_InvalidValue = 'Formato inválido. Exemplo: 500MB ou 2GB.'
+
+    Exclusions_Prompt = 'Deseja excluir da varredura as pastas de sistema pesadas (WinSxS, System32, cache do Windows Defender, etc.)? Os caches web (IIS/ASP.NET/XAMPP) sempre são incluídos.'
+
+    Scan_Starting      = 'Iniciando varredura para: {0}'
+    Scan_CacheLocation = 'Verificando cache: {0}'
+    Scan_Drive         = 'Varrendo unidade: {0}'
+    Scan_Folder        = 'Pasta: {0}'
+    Scan_Match         = 'Correspondência: {0}'
+    Scan_Hidden        = ' [oculto]'
+    Scan_Link          = ' [atalho]'
+    Scan_Completed     = 'Varredura concluída. Correspondências encontradas: {0}'
+    Scan_NoMatches     = 'Nenhuma correspondência encontrada para: {0}'
+    Scan_LogTruncated  = 'Limite de tamanho do log atingido: as próximas linhas não serão mais salvas no arquivo (a varredura continua mesmo assim).'
+    Scan_AccessDenied  = 'Acesso negado, pasta ignorada: {0}'
+
+    Results_Header           = 'RESULTADOS DA PESQUISA'
+    Results_Description      = 'Selecione o número do item a excluir, ou a última opção para excluir todos.'
+    Results_DeleteAll        = 'Excluir todas as correspondências ({0})'
+    Results_ConfirmDeleteOne = 'Tem certeza de que deseja excluir este arquivo?'
+    Results_ConfirmDeleteAll = 'Tem certeza de que deseja excluir TODAS as {0} correspondências encontradas?'
+    Results_Deleted          = 'Excluído: {0}'
+    Results_DeleteFailed     = 'Não foi possível excluir {0}: {1}'
+    Results_ReturningToMain  = 'Nenhuma correspondência restante: voltando ao menu principal.'
 }

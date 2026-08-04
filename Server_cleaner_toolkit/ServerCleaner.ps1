@@ -28,6 +28,7 @@ $script:LogFolderPath  = $script:ScriptRoot
 . (Join-Path $script:ModulesFolder 'Core.Logging.ps1')
 . (Join-Path $script:ModulesFolder 'Core.Menu.ps1')
 . (Join-Path $script:ModulesFolder 'Core.LogViewer.ps1')
+. (Join-Path $script:ModulesFolder 'Core.Search.ps1')
 . (Join-Path $script:ModulesFolder 'Core.Purge.ps1')
 
 # --- Lingua di default: rilevata dal sistema, con fallback su inglese ---
@@ -52,11 +53,11 @@ if (-not (Test-IsAdministrator)) {
 # --- Menu principale -----------------------------------------------------
 function Show-MainMenu {
     Show-ScreenHeader -Title $script:Lang.AppTitle -Description $script:Lang.MainMenu_Description
-    Write-Host $script:Lang.MainMenu_Option1
-    Write-Host $script:Lang.MainMenu_Option2
-    Write-Host $script:Lang.MainMenu_Option3
+    Write-Host (Format-MenuOption 1 $script:Lang.MainMenu_Option1)
+    Write-Host (Format-MenuOption 2 $script:Lang.MainMenu_Option2)
+    Write-Host (Format-MenuOption 3 $script:Lang.MainMenu_Option3)
     Write-Host ''
-    Write-Host $script:Lang.Option_Exit -ForegroundColor DarkGray
+    Write-Host (Format-MenuOption 0 $script:Lang.Option_Exit) -ForegroundColor DarkGray
 }
 
 while ($true) {
