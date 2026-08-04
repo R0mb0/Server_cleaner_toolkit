@@ -48,7 +48,20 @@
     LogLimit_EnterValue   = 'Introduzca el tamaño máximo (ej. 500MB o 2GB):'
     LogLimit_InvalidValue = 'Formato no válido. Ejemplo: 500MB o 2GB.'
 
-    Exclusions_Prompt = '¿Desea excluir del análisis las carpetas de sistema pesadas (WinSxS, System32, caché de Windows Defender, etc.)? Las cachés web (IIS/ASP.NET/XAMPP) siempre se incluyen.'
+    Exclusions_Prompt = 'Las carpetas de sistema muy pesadas (WinSxS, System32, caché de Windows Defender, etc.) rara vez contienen documentos de usuario. Las cachés web (IIS/ASP.NET/XAMPP) siempre se incluyen de todos modos.'
+    Exclusions_Header = 'EXCLUSIÓN DE CARPETAS DE SISTEMA'
+    Exclusions_Yes    = 'Sí, excluirlas del análisis (más rápido)'
+    Exclusions_No     = 'No, analizar también esas carpetas'
+
+    Purge_Cancelled = 'Operación cancelada por el usuario.'
+
+    Purge_SummaryHeader      = 'RESUMEN DE CONFIGURACIÓN'
+    Purge_SummaryFile        = 'Archivo a buscar: {0}'
+    Purge_SummaryLogMode     = 'Modo de registro: {0}'
+    Purge_SummaryLogLimit    = 'Límite del registro: {0}'
+    Purge_SummaryExclusions  = 'Excluir carpetas pesadas: {0}'
+    Purge_ConfirmStart       = '¿Desea iniciar el análisis con esta configuración?'
+    Purge_ScanCancelled      = 'Análisis cancelado por el usuario.'
 
     Scan_Starting      = 'Iniciando análisis de: {0}'
     Scan_CacheLocation = 'Comprobando caché: {0}'

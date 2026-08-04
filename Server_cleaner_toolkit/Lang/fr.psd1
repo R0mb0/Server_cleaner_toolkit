@@ -48,7 +48,20 @@
     LogLimit_EnterValue   = 'Saisissez la taille maximale (ex. 500MB ou 2GB) :'
     LogLimit_InvalidValue = 'Format invalide. Exemple : 500MB ou 2GB.'
 
-    Exclusions_Prompt = 'Voulez-vous exclure de l''analyse les dossiers système volumineux (WinSxS, System32, cache Windows Defender, etc.) ? Les caches web (IIS/ASP.NET/XAMPP) restent toujours inclus.'
+    Exclusions_Prompt = 'Les dossiers système très volumineux (WinSxS, System32, cache Windows Defender, etc.) contiennent rarement des documents utilisateur. Les caches web (IIS/ASP.NET/XAMPP) restent de toute façon toujours inclus.'
+    Exclusions_Header = 'EXCLUSION DES DOSSIERS SYSTÈME'
+    Exclusions_Yes    = 'Oui, les exclure de l''analyse (plus rapide)'
+    Exclusions_No     = 'Non, analyser aussi ces dossiers'
+
+    Purge_Cancelled = 'Opération annulée par l''utilisateur.'
+
+    Purge_SummaryHeader      = 'RÉCAPITULATIF DES PARAMÈTRES'
+    Purge_SummaryFile        = 'Fichier à rechercher : {0}'
+    Purge_SummaryLogMode     = 'Mode de journalisation : {0}'
+    Purge_SummaryLogLimit    = 'Limite du journal : {0}'
+    Purge_SummaryExclusions  = 'Exclusion des dossiers volumineux : {0}'
+    Purge_ConfirmStart       = 'Voulez-vous démarrer l''analyse avec ces paramètres ?'
+    Purge_ScanCancelled      = 'Analyse annulée par l''utilisateur.'
 
     Scan_Starting      = 'Démarrage de l''analyse pour : {0}'
     Scan_CacheLocation = 'Vérification du cache : {0}'

@@ -64,6 +64,39 @@ function Read-LogSizeLimit {
     }
 }
 
+function Read-ExclusionChoice {
+    <#
+        Chiede, con una scelta numerata (non un si/no libero, per coerenza
+        con le altre impostazioni del wizard), se escludere le cartelle di
+        sistema pesanti dalla scansione generale dei dischi. 0 annulla e
+        torna al menu principale.
+    #>
+    Show-ScreenHeader -Title $script:Lang.Exclusions_Header -Description $script:Lang.Exclusions_Prompt
+    Write-Host (Format-MenuOption 1 $script:Lang.Exclusions_Yes)
+    Write-Host (Format-MenuOption 2 $script:Lang.Exclusions_No)
+    Write-Host ''
+    Write-Host (Format-MenuOption 0 $script:Lang.Option_Back) -ForegroundColor DarkGray
+
+    $choice = Read-MenuChoice -MinValue 0 -MaxValue 2
+    if ($choice -eq 0) {
+        $script:PurgeWizardCancelled = $true
+        return $true
+    }
+    return ($choice -eq 1)
+}
+
+function Format-ByteSize {
+    <#
+        Converte un numero di byte in una stringa leggibile ("500 MB",
+        "2 GB"), oppure nel testo localizzato "nessun limite" se 0 o minore.
+    #>
+    param([long]$Bytes)
+
+    if ($Bytes -le 0) { return $script:Lang.LogLimit_None }
+    if ($Bytes -ge 1GB) { return "{0:N0} GB" -f ($Bytes / 1GB) }
+    return "{0:N0} MB" -f ($Bytes / 1MB)
+}
+
 function Remove-SingleFile {
     <#
         Elimina fisicamente un file e registra l'esito (successo o errore)
@@ -153,9 +186,15 @@ function Show-PurgeResults {
 
 function Invoke-PurgeMenu {
     <#
-        Punto di ingresso del menu "Elimina un file (purge)": chiede il nome
-        da cercare, raccoglie le opzioni di scansione, avvia un log dedicato
-        e la ricerca sul server, poi mostra i risultati per l'eliminazione.
+        Punto di ingresso del menu "Elimina un file (purge)". Ordine voluto:
+        1) nome del file (cosi' si puo' aprire subito il log con quel nome);
+        2) wizard di opzioni, tutto a scelta numerata (modalita' di log,
+           limite dimensione, esclusione cartelle pesanti) - ogni scelta
+           viene anche scritta nel log gia' aperto;
+        3) riepilogo e conferma si/no per avviare davvero la scansione
+           (unica eccezione, insieme alla cancellazione dei file, in cui si
+           risponde a testo libero invece che con un numero);
+        4) scansione e presentazione dei risultati.
     #>
     Show-ScreenHeader -Title $script:Lang.Purge_Header -Description $script:Lang.Purge_Description
     Write-Host $script:Lang.Purge_AskFileName -ForegroundColor Yellow
@@ -164,23 +203,56 @@ function Invoke-PurgeMenu {
     $fileName = (Read-Host).Trim()
 
     # Un nome vuoto (solo INVIO) equivale a rinunciare e tornare al menu
-    # principale: non essendo un menu numerato non ha senso chiedere "0".
+    # principale: non essendo un menu numerato non ha senso chiedere "0", e
+    # non avendo ancora un nome non ha senso aprire un log.
     if ([string]::IsNullOrWhiteSpace($fileName)) { return }
 
     $script:PurgeWizardCancelled = $false
 
-    $logMode = Read-LogModeChoice
-    if ($script:PurgeWizardCancelled) { return }
-
-    $maxBytes = Read-LogSizeLimit
-    if ($script:PurgeWizardCancelled) { return }
-
-    Show-ScreenHeader -Title $script:Lang.Purge_Header
-    Write-Host $script:Lang.Exclusions_Prompt -ForegroundColor Yellow
-    $excludeHeavy = Read-YesNoConfirmation
-
     try {
-        Start-OperationLog -OperationName $fileName -LogFolder $script:LogFolderPath -MaxBytes $maxBytes | Out-Null
+        # Il log si apre subito, con il nome del file appena inserito: tutte
+        # le scelte successive del wizard vengono registrate qui, anche se
+        # poi l'utente dovesse annullare prima di arrivare alla scansione.
+        Start-OperationLog -OperationName $fileName -LogFolder $script:LogFolderPath -MaxBytes 0 | Out-Null
+
+        $logMode = Read-LogModeChoice
+        if ($script:PurgeWizardCancelled) {
+            Write-Log $script:Lang.Purge_Cancelled -Level WARN
+            return
+        }
+        $logModeLabel = if ($logMode -eq 'Full') { $script:Lang.LogMode_Full } else { $script:Lang.LogMode_MatchesOnly }
+        Write-Log ($script:Lang.Purge_SummaryLogMode -f $logModeLabel) -Level INFO
+
+        $maxBytes = Read-LogSizeLimit
+        if ($script:PurgeWizardCancelled) {
+            Write-Log $script:Lang.Purge_Cancelled -Level WARN
+            return
+        }
+        # Il limite scelto vale da qui in avanti: le righe gia' scritte nel
+        # log durante il wizard non vengono ricontate retroattivamente.
+        $script:LogMaxBytes = $maxBytes
+        Write-Log ($script:Lang.Purge_SummaryLogLimit -f (Format-ByteSize -Bytes $maxBytes)) -Level INFO
+
+        $excludeHeavy = Read-ExclusionChoice
+        if ($script:PurgeWizardCancelled) {
+            Write-Log $script:Lang.Purge_Cancelled -Level WARN
+            return
+        }
+        $exclusionLabel = if ($excludeHeavy) { $script:Lang.Confirm_Yes } else { $script:Lang.Confirm_No }
+        Write-Log ($script:Lang.Purge_SummaryExclusions -f $exclusionLabel) -Level INFO
+
+        Show-ScreenHeader -Title $script:Lang.Purge_SummaryHeader
+        Write-Host ($script:Lang.Purge_SummaryFile -f $fileName)
+        Write-Host ($script:Lang.Purge_SummaryLogMode -f $logModeLabel)
+        Write-Host ($script:Lang.Purge_SummaryLogLimit -f (Format-ByteSize -Bytes $maxBytes))
+        Write-Host ($script:Lang.Purge_SummaryExclusions -f $exclusionLabel)
+        Write-Host ''
+        Write-Host $script:Lang.Purge_ConfirmStart -ForegroundColor Yellow
+
+        if (-not (Read-YesNoConfirmation)) {
+            Write-Log $script:Lang.Purge_ScanCancelled -Level WARN
+            return
+        }
 
         $results = Search-ServerForFile -FileNameInput $fileName -ExcludeHeavySystemFolders $excludeHeavy -VerboseMode $logMode -IncludeNetworkDrives $true
 
@@ -191,8 +263,9 @@ function Invoke-PurgeMenu {
 
         Show-PurgeResults -Results $results
     } finally {
-        # Va sempre eseguito, anche se la ricerca viene interrotta da un
-        # errore imprevisto, per non lasciare il file di log aperto.
+        # Va sempre eseguito, anche se l'utente annulla a meta' wizard o la
+        # ricerca viene interrotta da un errore imprevisto, per non lasciare
+        # il file di log aperto.
         Stop-OperationLog
     }
 }

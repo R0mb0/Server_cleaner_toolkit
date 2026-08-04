@@ -48,7 +48,20 @@
     LogLimit_EnterValue   = 'Digite o tamanho máximo (ex. 500MB ou 2GB):'
     LogLimit_InvalidValue = 'Formato inválido. Exemplo: 500MB ou 2GB.'
 
-    Exclusions_Prompt = 'Deseja excluir da varredura as pastas de sistema pesadas (WinSxS, System32, cache do Windows Defender, etc.)? Os caches web (IIS/ASP.NET/XAMPP) sempre são incluídos.'
+    Exclusions_Prompt = 'Pastas de sistema muito pesadas (WinSxS, System32, cache do Windows Defender, etc.) raramente contêm documentos do usuário. Os caches web (IIS/ASP.NET/XAMPP) sempre são incluídos de qualquer forma.'
+    Exclusions_Header = 'EXCLUSÃO DE PASTAS DE SISTEMA'
+    Exclusions_Yes    = 'Sim, excluí-las da varredura (mais rápido)'
+    Exclusions_No     = 'Não, varrer essas pastas também'
+
+    Purge_Cancelled = 'Operação cancelada pelo usuário.'
+
+    Purge_SummaryHeader      = 'RESUMO DAS CONFIGURAÇÕES'
+    Purge_SummaryFile        = 'Arquivo a pesquisar: {0}'
+    Purge_SummaryLogMode     = 'Modo de log: {0}'
+    Purge_SummaryLogLimit    = 'Limite do log: {0}'
+    Purge_SummaryExclusions  = 'Excluir pastas pesadas: {0}'
+    Purge_ConfirmStart       = 'Deseja iniciar a varredura com estas configurações?'
+    Purge_ScanCancelled      = 'Varredura cancelada pelo usuário.'
 
     Scan_Starting      = 'Iniciando varredura para: {0}'
     Scan_CacheLocation = 'Verificando cache: {0}'

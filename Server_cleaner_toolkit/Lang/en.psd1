@@ -48,7 +48,20 @@
     LogLimit_EnterValue   = 'Enter the maximum size (e.g. 500MB or 2GB):'
     LogLimit_InvalidValue = 'Invalid format. Example: 500MB or 2GB.'
 
-    Exclusions_Prompt = 'Do you want to exclude heavy system folders from the scan (WinSxS, System32, Windows Defender cache, etc.)? Web caches (IIS/ASP.NET/XAMPP) are always included.'
+    Exclusions_Prompt = 'Heavy system folders (WinSxS, System32, Windows Defender cache, etc.) rarely contain user documents. Web caches (IIS/ASP.NET/XAMPP) are always included regardless.'
+    Exclusions_Header = 'SYSTEM FOLDER EXCLUSION'
+    Exclusions_Yes    = 'Yes, exclude them from the scan (faster)'
+    Exclusions_No     = 'No, scan those too'
+
+    Purge_Cancelled = 'Operation cancelled by the user.'
+
+    Purge_SummaryHeader      = 'SETTINGS SUMMARY'
+    Purge_SummaryFile        = 'File to search for: {0}'
+    Purge_SummaryLogMode     = 'Log mode: {0}'
+    Purge_SummaryLogLimit    = 'Log limit: {0}'
+    Purge_SummaryExclusions  = 'Exclude heavy folders: {0}'
+    Purge_ConfirmStart       = 'Do you want to start the scan with these settings?'
+    Purge_ScanCancelled      = 'Scan cancelled by the user.'
 
     Scan_Starting      = 'Starting scan for: {0}'
     Scan_CacheLocation = 'Checking cache: {0}'
