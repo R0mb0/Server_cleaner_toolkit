@@ -18,6 +18,7 @@ Built for tolerant name matching, full transparency (colorized, replayable sessi
 ---
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/236541e7010a4098aae86cf513e14f1f)](https://app.codacy.com/gh/R0mb0/Server_cleaner_toolkit/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![pages-build-deployment](https://github.com/R0mb0/Server_cleaner_toolkit/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/R0mb0/Server_cleaner_toolkit/actions/workflows/pages/pages-build-deployment)
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/R0mb0/Server_cleaner_toolkit)
 [![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/R0mb0/Server_cleaner_toolkit)
