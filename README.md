@@ -17,10 +17,16 @@ Built for tolerant name matching, full transparency (colorized, replayable sessi
 
 ---
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/236541e7010a4098aae86cf513e14f1f)](https://app.codacy.com/gh/R0mb0/Server_cleaner_toolkit/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/R0mb0/Server_cleaner_toolkit)
+[![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/R0mb0/Server_cleaner_toolkit)
+[![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit)
+
+
 [![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-5391FE?logo=powershell&logoColor=white)](https://learn.microsoft.com/powershell/)
 [![Windows Server](https://img.shields.io/badge/Windows%20Server-2016%2B-0078D6?logo=windows&logoColor=white)](https://learn.microsoft.com/windows-server/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/R0mb0/server-cleaner-toolkit)
+
 
 </div>
 
@@ -60,7 +66,7 @@ ServerCleaner Toolkit was built to make that investigation fast and safe: give i
 
 <h3>1) Get the script</h3>
 <p>Clone the whole repo if you want the modular source, or just download <code>ServerCleaner-Portable.ps1</code> on its own — it has no dependencies.</p>
-<pre><code>git clone https://github.com/R0mb0/server-cleaner-toolkit.git
+<pre><code>git clone https://github.com/R0mb0/Server_cleaner_toolkit.git
 cd server-cleaner-toolkit</code></pre>
 
 <h3>2) Run it</h3>
@@ -97,11 +103,10 @@ cd server-cleaner-toolkit</code></pre>
 <li>Test on a non-critical path or a non-production server first if you're not yet familiar with the tool.</li>
 </ul>
 
-<h2>🧪 Troubleshooting</h2>
-<ul>
-<li><strong>Numbered menu rejects your input</strong> → type only the digit (e.g. <code>2</code>), with no trailing punctuation.</li>
-<li><strong>"Cartella saltata"/"Elemento saltato" entries in the log</strong> → expected on live folders like Temp, where files can be created/removed by other processes mid-scan; the entry is skipped and the scan continues.</li>
-<li><strong>Very deep folder paths reported as inaccessible</strong> → Windows PowerShell 5.1 can hit the classic ~260-character path limit on some systems; affected folders are logged and skipped.</li>
-<li><strong><code>ps2exe</code> fails with a <code>UseShellExecute</code> / process-launch error</strong> → you're running it from PowerShell 7 (<code>pwsh</code>). Reopen a plain <strong>Windows PowerShell</strong> (5.1) window and rerun both the <code>Install-Module</code> and <code>Invoke-ps2exe</code> commands from there.</li>
-<li><strong>Script won't run at all / execution policy error</strong> → launch it with <code>powershell -ExecutionPolicy Bypass -File ".\ServerCleaner-Portable.ps1"</code>.</li>
-</ul>
+<a href="https://github.com/R0mb0/Crafted_with_AI">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/R0mb0/Crafted_with_AI/blob/main/Badge/SVG/CraftedWithAIDark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/R0mb0/Crafted_with_AI/blob/main/Badge/SVG/NotMadeByAILight.svg">
+    <img alt="Not made by AI" src="https://github.com/R0mb0/Crafted_with_AI/blob/main/Badge/SVG/NotMadeByAIDefault.svg">
+  </picture>
+</a>
