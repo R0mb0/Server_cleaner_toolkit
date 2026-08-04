@@ -35,12 +35,14 @@ function Show-ScreenHeader {
 
 function Format-MenuOption {
     <#
-        Formatta una voce di menu numerata in modo uniforme, es. "1) Cambia lingua".
-        Si usa la parentesi invece del punto (es. "1)" e non "1.") apposta: con il
-        punto alcuni utenti sono tentati di digitare anche quello ("1.") e la scelta
-        viene rifiutata. Le stringhe di traduzione non contengono piu' il numero:
-        viene sempre aggiunto qui, in un unico punto, cosi' il formato resta
-        coerente in ogni lingua e in ogni menu.
+        Formatta una voce di menu numerata in modo uniforme, es. "1  Cambia lingua".
+        Deliberatamente NESSUN segno di punteggiatura e' attaccato al numero
+        (ne' punto "1.", ne' parentesi "1)"): con entrambi gli utenti sono
+        stati tentati di digitare anche quel simbolo insieme al numero, e la
+        scelta veniva rifiutata perche' l'input accetta solo cifre. Il doppio
+        spazio basta a separare visivamente numero e testo. Le stringhe di
+        traduzione non contengono il numero: viene sempre aggiunto qui, in un
+        unico punto, cosi' il formato resta coerente in ogni lingua e menu.
     #>
     param(
         [Parameter(Mandatory)]
@@ -51,7 +53,7 @@ function Format-MenuOption {
         [string]$Text
     )
 
-    return "{0}) {1}" -f $Number, $Text
+    return "{0}  {1}" -f $Number, $Text
 }
 
 function Read-MenuChoice {

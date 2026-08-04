@@ -78,7 +78,7 @@
 
     Results_Header           = 'RESULTADOS DE LA BÚSQUEDA'
     Results_Description      = 'Seleccione el número del elemento a eliminar, o la última opción para eliminarlos todos.'
-    Results_DeleteAll        = 'Eliminar todas las coincidencias ({0})'
+    Results_DeleteAll        = 'Eliminar todas las {0} coincidencias encontradas'
     Results_ConfirmDeleteOne = '¿Está seguro de que desea eliminar este archivo?'
     Results_ConfirmDeleteAll = '¿Está seguro de que desea eliminar TODAS las {0} coincidencias encontradas?'
     Results_Deleted          = 'Eliminado: {0}'

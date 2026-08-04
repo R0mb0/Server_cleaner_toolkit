@@ -78,7 +78,7 @@
 
     Results_Header           = 'SUCHERGEBNISSE'
     Results_Description      = 'Wählen Sie die Nummer des zu löschenden Elements, oder die letzte Option, um alle zu löschen.'
-    Results_DeleteAll        = 'Alle Treffer löschen ({0})'
+    Results_DeleteAll        = 'Alle {0} gefundenen Treffer löschen'
     Results_ConfirmDeleteOne = 'Sind Sie sicher, dass Sie diese Datei löschen möchten?'
     Results_ConfirmDeleteAll = 'Sind Sie sicher, dass Sie ALLE {0} gefundenen Treffer löschen möchten?'
     Results_Deleted          = 'Gelöscht: {0}'

@@ -78,7 +78,7 @@
 
     Results_Header           = 'SEARCH RESULTS'
     Results_Description      = 'Select the number of the item to delete, or the last option to delete them all.'
-    Results_DeleteAll        = 'Delete all matches ({0})'
+    Results_DeleteAll        = 'Delete all {0} matches found'
     Results_ConfirmDeleteOne = 'Are you sure you want to delete this file?'
     Results_ConfirmDeleteAll = 'Are you sure you want to delete ALL {0} matches found?'
     Results_Deleted          = 'Deleted: {0}'

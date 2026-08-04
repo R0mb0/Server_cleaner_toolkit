@@ -78,7 +78,7 @@
 
     Results_Header           = 'RISULTATI RICERCA'
     Results_Description      = 'Seleziona il numero dell''elemento da eliminare, oppure l''ultima opzione per eliminarli tutti.'
-    Results_DeleteAll        = 'Elimina tutte le corrispondenze ({0})'
+    Results_DeleteAll        = 'Elimina tutte le {0} corrispondenze trovate'
     Results_ConfirmDeleteOne = 'Sei sicuro di voler eliminare questo file?'
     Results_ConfirmDeleteAll = 'Sei sicuro di voler eliminare TUTTE le {0} corrispondenze trovate?'
     Results_Deleted          = 'Eliminato: {0}'

@@ -78,7 +78,7 @@
 
     Results_Header           = 'RESULTADOS DA PESQUISA'
     Results_Description      = 'Selecione o número do item a excluir, ou a última opção para excluir todos.'
-    Results_DeleteAll        = 'Excluir todas as correspondências ({0})'
+    Results_DeleteAll        = 'Excluir todas as {0} correspondências encontradas'
     Results_ConfirmDeleteOne = 'Tem certeza de que deseja excluir este arquivo?'
     Results_ConfirmDeleteAll = 'Tem certeza de que deseja excluir TODAS as {0} correspondências encontradas?'
     Results_Deleted          = 'Excluído: {0}'
