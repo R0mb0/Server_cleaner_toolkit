@@ -312,7 +312,11 @@ function Invoke-DirectoryWalk {
 
         [string[]]$ExcludePaths = @(),
 
-        [Parameter(Mandatory)]
+        # NB: niente [Parameter(Mandatory)] qui. PowerShell rifiuta di
+        # bindare una collezione vuota a un parametro obbligatorio ("Cannot
+        # bind argument... because it is an empty collection"), e all'inizio
+        # di ogni scansione la lista dei risultati e' vuota per definizione
+        # (nessuna corrispondenza ancora trovata).
         [System.Collections.Generic.List[object]]$Results
     )
 

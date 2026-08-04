@@ -126,12 +126,14 @@ function Show-PurgeResults {
         vuota si torna automaticamente al menu principale.
     #>
     param(
-        [Parameter(Mandatory)]
+        # Niente [Parameter(Mandatory)]: quando la ricerca non trova nulla,
+        # arriva qui una lista vuota, e PowerShell rifiuterebbe di bindare
+        # una collezione vuota a un parametro obbligatorio.
         [System.Collections.Generic.List[object]]$Results
     )
 
     while ($true) {
-        if ($Results.Count -eq 0) {
+        if (-not $Results -or $Results.Count -eq 0) {
             Write-Host ''
             Write-Host $script:Lang.Results_ReturningToMain -ForegroundColor DarkGray
             Start-Sleep -Seconds 1
