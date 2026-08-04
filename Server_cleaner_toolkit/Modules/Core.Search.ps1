@@ -239,7 +239,15 @@ function Test-NameMatches {
         un numero eccessivo di falsi positivi con input molto corti.
     #>
     param(
+        # AllowEmptyString: file come ".htaccess", ".config", ".ses" (che
+        # iniziano con un punto e non hanno altro prima) hanno un BaseName
+        # vuoto per definizione ([IO.Path]::GetFileNameWithoutExtension
+        # considera tutto il nome come estensione). Senza questo attributo
+        # PowerShell rifiuta di bindare la stringa vuota a un parametro
+        # obbligatorio, facendo fallire il confronto invece di
+        # semplicemente concludere "non corrisponde".
         [Parameter(Mandatory)]
+        [AllowEmptyString()]
         [string]$CandidateBaseName,
 
         [Parameter(Mandatory)]
@@ -261,13 +269,18 @@ function Test-NameMatches {
         return $true
     }
 
+    # NB: qui si controlla solo "il nome del file contiene il termine
+    # cercato" e non il contrario. Un controllo "il termine cercato contiene
+    # il nome del file" sembrava utile in teoria, ma in pratica genera falsi
+    # positivi enormi con ricerche lunghe: un file chiamato "dir.gif" veniva
+    # segnalato come corrispondenza di "DIRIGENTE" solo
+    # perche' "dir" e' una sottostringa di "dirigente". Non e' quello che
+    # serve: l'utente vuole trovare file il cui nome contiene (anche solo in
+    # parte) quello che ha digitato, non il contrario.
     if ($targetNormalized.Length -ge 3) {
         if ($candidateNormalized.Contains($targetNormalized)) { return $true }
         if ($candidateNoCopy.Contains($targetNormalized))     { return $true }
         if (-not [string]::IsNullOrWhiteSpace($targetStripped) -and $targetStripped.Length -ge 3 -and $candidateStripped.Contains($targetStripped)) {
-            return $true
-        }
-        if ($candidateNormalized.Length -ge 3 -and $targetNormalized.Contains($candidateNormalized)) {
             return $true
         }
     }
