@@ -74,6 +74,7 @@
     Scan_NoMatches     = 'No matches found for: {0}'
     Scan_LogTruncated  = 'Log size limit reached: further lines will no longer be saved to file (the scan continues anyway).'
     Scan_AccessDenied  = 'Access denied, folder skipped: {0}'
+    Scan_ItemError     = 'Item skipped due to an error: {0} ({1})'
 
     Results_Header           = 'SEARCH RESULTS'
     Results_Description      = 'Select the number of the item to delete, or the last option to delete them all.'
@@ -83,4 +84,6 @@
     Results_Deleted          = 'Deleted: {0}'
     Results_DeleteFailed     = 'Could not delete {0}: {1}'
     Results_ReturningToMain  = 'No matches left: returning to the main menu.'
+
+    App_UnexpectedError = 'An unexpected error occurred: {0}'
 }

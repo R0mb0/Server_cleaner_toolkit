@@ -64,14 +64,27 @@ while ($true) {
     Show-MainMenu
     $choice = Read-MenuChoice -MinValue 0 -MaxValue 3
 
-    switch ($choice) {
-        0 {
-            Write-Host ''
-            Write-Host $script:Lang.Exiting -ForegroundColor DarkGray
-            exit
+    # Rete di sicurezza finale: qualunque errore imprevisto non gestito nelle
+    # singole funzioni di menu viene comunque intercettato qui, mostrato a
+    # schermo (con traccia tecnica) e messo in pausa, invece di far
+    # scomparire lo script nel nulla al ridisegno della schermata successiva.
+    try {
+        switch ($choice) {
+            0 {
+                Write-Host ''
+                Write-Host $script:Lang.Exiting -ForegroundColor DarkGray
+                exit
+            }
+            1 { Invoke-LanguageMenu }
+            2 { Invoke-PurgeMenu }
+            3 { Invoke-LogViewerMenu }
         }
-        1 { Invoke-LanguageMenu }
-        2 { Invoke-PurgeMenu }
-        3 { Invoke-LogViewerMenu }
+    } catch {
+        Write-Host ''
+        Write-Host ($script:Lang.App_UnexpectedError -f $_.Exception.Message) -ForegroundColor Red
+        Write-Host $_.ScriptStackTrace -ForegroundColor DarkRed
+        Write-Host ''
+        Write-Host $script:Lang.Press_Enter -ForegroundColor DarkGray
+        Read-Host | Out-Null
     }
 }

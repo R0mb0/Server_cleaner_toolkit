@@ -74,6 +74,7 @@
     Scan_NoMatches     = 'No se encontraron coincidencias para: {0}'
     Scan_LogTruncated  = 'Límite de tamaño del registro alcanzado: las líneas siguientes ya no se guardarán en el archivo (el análisis continúa de todos modos).'
     Scan_AccessDenied  = 'Acceso denegado, carpeta omitida: {0}'
+    Scan_ItemError     = 'Elemento omitido debido a un error: {0} ({1})'
 
     Results_Header           = 'RESULTADOS DE LA BÚSQUEDA'
     Results_Description      = 'Seleccione el número del elemento a eliminar, o la última opción para eliminarlos todos.'
@@ -83,4 +84,6 @@
     Results_Deleted          = 'Eliminado: {0}'
     Results_DeleteFailed     = 'No se pudo eliminar {0}: {1}'
     Results_ReturningToMain  = 'No quedan coincidencias: volviendo al menú principal.'
+
+    App_UnexpectedError = 'Se produjo un error inesperado: {0}'
 }

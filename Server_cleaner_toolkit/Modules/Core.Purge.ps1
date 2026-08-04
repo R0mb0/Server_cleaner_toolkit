@@ -262,6 +262,18 @@ function Invoke-PurgeMenu {
         }
 
         Show-PurgeResults -Results $results
+    } catch {
+        # Rete di sicurezza: un errore imprevisto qui non deve far sparire lo
+        # script silenziosamente nel menu principale (il Clear-Host della
+        # schermata successiva cancellerebbe subito qualunque messaggio
+        # stampato al volo). Si registra nel log e si mostra a schermo,
+        # fermando l'esecuzione finche' l'utente non preme INVIO.
+        Write-Log ($script:Lang.App_UnexpectedError -f $_.Exception.Message) -Level ERROR
+        Write-Host ''
+        Write-Host ($script:Lang.App_UnexpectedError -f $_.Exception.Message) -ForegroundColor Red
+        Write-Host ''
+        Write-Host $script:Lang.Press_Enter -ForegroundColor DarkGray
+        Read-Host | Out-Null
     } finally {
         # Va sempre eseguito, anche se l'utente annulla a meta' wizard o la
         # ricerca viene interrotta da un errore imprevisto, per non lasciare

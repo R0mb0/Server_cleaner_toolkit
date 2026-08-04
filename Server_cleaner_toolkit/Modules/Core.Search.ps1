@@ -341,36 +341,49 @@ function Invoke-DirectoryWalk {
         }
 
         foreach ($item in $items) {
-            if ($item.PSIsContainer) {
-                $isReparse = (($item.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0)
-                # Le cartelle "collegamento" (junction/symlink) non vengono
-                # attraversate, per evitare cicli infiniti (es. cartelle che
-                # rimandano a se stesse o a un antenato).
-                if ($isReparse) { continue }
-                if (Test-PathExcluded -Path $item.FullName -ExcludeList $ExcludePaths) { continue }
-                $stack.Push($item.FullName)
-            } else {
-                $isMatch = Test-NameMatches -CandidateBaseName $item.BaseName -TargetVariants $TargetVariants
+            # Ogni elemento viene elaborato nel proprio try/catch: su una
+            # cartella "viva" come Windows\Temp e' normale che un file
+            # scompaia (cancellato da un altro processo) proprio nell'istante
+            # in cui lo si sta osservando. Senza questa protezione, un errore
+            # su un singolo elemento fermava silenziosamente l'intera
+            # scansione (il messaggio d'errore veniva subito cancellato dal
+            # ridisegno del menu principale, dando l'impressione che lo
+            # script fosse semplicemente "tornato indietro" da solo).
+            try {
+                if ($item.PSIsContainer) {
+                    $isReparse = (($item.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0)
+                    # Le cartelle "collegamento" (junction/symlink) non vengono
+                    # attraversate, per evitare cicli infiniti (es. cartelle che
+                    # rimandano a se stesse o a un antenato).
+                    if ($isReparse) { continue }
+                    if (Test-PathExcluded -Path $item.FullName -ExcludeList $ExcludePaths) { continue }
+                    $stack.Push($item.FullName)
+                } else {
+                    $isMatch = Test-NameMatches -CandidateBaseName $item.BaseName -TargetVariants $TargetVariants
 
-                if ($isMatch) {
-                    $isHidden = (($item.Attributes -band [IO.FileAttributes]::Hidden) -ne 0)
-                    $isLink   = (($item.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0)
+                    if ($isMatch) {
+                        $isHidden = (($item.Attributes -band [IO.FileAttributes]::Hidden) -ne 0)
+                        $isLink   = (($item.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0)
 
-                    $tag = ''
-                    if ($isHidden) { $tag += $script:Lang.Scan_Hidden }
-                    if ($isLink)   { $tag += $script:Lang.Scan_Link }
+                        $tag = ''
+                        if ($isHidden) { $tag += $script:Lang.Scan_Hidden }
+                        if ($isLink)   { $tag += $script:Lang.Scan_Link }
 
-                    if ($VerboseMode -ne 'Full') { Write-Host '' }
-                    Write-Log (($script:Lang.Scan_Match -f $item.FullName) + $tag) -Level MATCH
+                        if ($VerboseMode -ne 'Full') { Write-Host '' }
+                        Write-Log (($script:Lang.Scan_Match -f $item.FullName) + $tag) -Level MATCH
 
-                    $Results.Add([PSCustomObject]@{
-                        FullPath = $item.FullName
-                        IsHidden = $isHidden
-                        IsLink   = $isLink
-                    })
-                } elseif ($VerboseMode -eq 'Full') {
-                    Write-Log $item.FullName -Level SCAN
+                        $Results.Add([PSCustomObject]@{
+                            FullPath = $item.FullName
+                            IsHidden = $isHidden
+                            IsLink   = $isLink
+                        })
+                    } elseif ($VerboseMode -eq 'Full') {
+                        Write-Log $item.FullName -Level SCAN
+                    }
                 }
+            } catch {
+                if ($VerboseMode -ne 'Full') { Write-Host '' }
+                Write-Log ($script:Lang.Scan_ItemError -f $item.FullName, $_.Exception.Message) -Level WARN
             }
         }
     }

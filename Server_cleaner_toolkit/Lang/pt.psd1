@@ -74,6 +74,7 @@
     Scan_NoMatches     = 'Nenhuma correspondência encontrada para: {0}'
     Scan_LogTruncated  = 'Limite de tamanho do log atingido: as próximas linhas não serão mais salvas no arquivo (a varredura continua mesmo assim).'
     Scan_AccessDenied  = 'Acesso negado, pasta ignorada: {0}'
+    Scan_ItemError     = 'Item ignorado devido a um erro: {0} ({1})'
 
     Results_Header           = 'RESULTADOS DA PESQUISA'
     Results_Description      = 'Selecione o número do item a excluir, ou a última opção para excluir todos.'
@@ -83,4 +84,6 @@
     Results_Deleted          = 'Excluído: {0}'
     Results_DeleteFailed     = 'Não foi possível excluir {0}: {1}'
     Results_ReturningToMain  = 'Nenhuma correspondência restante: voltando ao menu principal.'
+
+    App_UnexpectedError = 'Ocorreu um erro inesperado: {0}'
 }

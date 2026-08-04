@@ -74,6 +74,7 @@
     Scan_NoMatches     = 'Aucune correspondance trouvée pour : {0}'
     Scan_LogTruncated  = 'Limite de taille du journal atteinte : les lignes suivantes ne seront plus enregistrées dans le fichier (l''analyse continue quand même).'
     Scan_AccessDenied  = 'Accès refusé, dossier ignoré : {0}'
+    Scan_ItemError     = 'Élément ignoré en raison d''une erreur : {0} ({1})'
 
     Results_Header           = 'RÉSULTATS DE LA RECHERCHE'
     Results_Description      = 'Sélectionnez le numéro de l''élément à supprimer, ou la dernière option pour tout supprimer.'
@@ -83,4 +84,6 @@
     Results_Deleted          = 'Supprimé : {0}'
     Results_DeleteFailed     = 'Impossible de supprimer {0} : {1}'
     Results_ReturningToMain  = 'Plus aucune correspondance : retour au menu principal.'
+
+    App_UnexpectedError = 'Une erreur inattendue s''est produite : {0}'
 }

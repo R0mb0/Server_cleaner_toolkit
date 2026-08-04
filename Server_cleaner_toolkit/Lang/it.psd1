@@ -74,6 +74,7 @@
     Scan_NoMatches     = 'Nessuna corrispondenza trovata per: {0}'
     Scan_LogTruncated  = 'Limite dimensione log raggiunto: le righe successive non verranno più salvate su file (la scansione prosegue comunque).'
     Scan_AccessDenied  = 'Accesso negato, cartella saltata: {0}'
+    Scan_ItemError     = 'Elemento saltato per errore: {0} ({1})'
 
     Results_Header           = 'RISULTATI RICERCA'
     Results_Description      = 'Seleziona il numero dell''elemento da eliminare, oppure l''ultima opzione per eliminarli tutti.'
@@ -83,4 +84,6 @@
     Results_Deleted          = 'Eliminato: {0}'
     Results_DeleteFailed     = 'Impossibile eliminare {0}: {1}'
     Results_ReturningToMain  = 'Nessuna corrispondenza rimanente: ritorno al menu principale.'
+
+    App_UnexpectedError = 'Si è verificato un errore imprevisto: {0}'
 }

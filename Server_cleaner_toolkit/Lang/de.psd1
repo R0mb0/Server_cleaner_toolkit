@@ -74,6 +74,7 @@
     Scan_NoMatches     = 'Keine Treffer gefunden für: {0}'
     Scan_LogTruncated  = 'Protokollgrößenlimit erreicht: weitere Zeilen werden nicht mehr in der Datei gespeichert (der Scan wird trotzdem fortgesetzt).'
     Scan_AccessDenied  = 'Zugriff verweigert, Ordner übersprungen: {0}'
+    Scan_ItemError     = 'Element aufgrund eines Fehlers übersprungen: {0} ({1})'
 
     Results_Header           = 'SUCHERGEBNISSE'
     Results_Description      = 'Wählen Sie die Nummer des zu löschenden Elements, oder die letzte Option, um alle zu löschen.'
@@ -83,4 +84,6 @@
     Results_Deleted          = 'Gelöscht: {0}'
     Results_DeleteFailed     = 'Konnte {0} nicht löschen: {1}'
     Results_ReturningToMain  = 'Keine Treffer mehr übrig: Rückkehr zum Hauptmenü.'
+
+    App_UnexpectedError = 'Ein unerwarteter Fehler ist aufgetreten: {0}'
 }
